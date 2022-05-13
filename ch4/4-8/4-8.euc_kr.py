@@ -1,0 +1,2 @@
+# coding: euc_kr
+print('ÆÄÀÌ½ã')
