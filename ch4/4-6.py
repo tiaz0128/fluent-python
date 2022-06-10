@@ -9,4 +9,4 @@ city.encode('utf_16')
 city.encode('euc_kr')
 
 #에러 발생
-print(city.encode('cp437', errors='xmlcharrefreplace'))
+print(city.encode('cp437', errors='replace'))
