@@ -35,26 +35,26 @@ class Vector:
 
     # BEGIN VECTOR_V2
 
-    # def __len__(self):
-    #     return len(self._components)
-
-    # def __getitem__(self, index):
-    #     cls = type(self)  # <1>
-    #     if isinstance(index, slice):  # <2>
-    #         return cls(self._components[index])  # <3>
-    #     elif isinstance(index, numbers.Integral):  # <4>
-    #         return self._components[index]  # <5>
-    #     else:
-    #         msg = "{cls.__name__} indices must be integers"
-    #         raise TypeError(msg.format(cls=cls))  # <6>
-
-    # END VECTOR_V2
-
     def __len__(self):
         return len(self._components)
 
     def __getitem__(self, index):
-        return self._components[index]
+        cls = type(self)  # <1>
+        if isinstance(index, slice):  # <2>
+            return cls(self._components[index])  # <3>
+        elif isinstance(index, numbers.Integral):  # <4>
+            return self._components[index]  # <5>
+        else:
+            msg = "{cls.__name__} indices must be integers"
+            raise TypeError(msg.format(cls=cls))  # <6>
+
+    # END VECTOR_V2
+
+    # def __len__(self):
+    #     return len(self._components)
+
+    # def __getitem__(self, index):
+    #     return self._components[index]
 
     # @classmethod
     # def frombytes(cls, octets):
@@ -75,5 +75,5 @@ print(v7)
 
 print(v7[1:4])
 
-# print(type(v7[1:4]))
+print(type(v7[1:4]))
 # print(v7["a"])
