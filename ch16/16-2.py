@@ -24,4 +24,5 @@ try:
     my_coro2.send(99)  # StopIteration
 
 except Exception as e:
+    print(e)
     print(getgeneratorstate(my_coro2))  # GEN_CLOSED

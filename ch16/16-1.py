@@ -7,7 +7,6 @@ def simple_coroutine():
 
 
 my_coro = simple_coroutine()
-my_coro.send(42)
 
 # next(my_coro)
-# next(my_coro)
+my_coro.send(42)

@@ -16,27 +16,27 @@ def demo_exc_handling():
     raise RuntimeError("This line should never run.")
 
 
-exc_coro = demo_exc_handling()
-next(exc_coro)
-
-exc_coro.send(11)
-exc_coro.send(22)
-
-exc_coro.close()
-
-from inspect import getgeneratorstate
-
-print(getgeneratorstate(exc_coro))  # GEN_CLOSED
-
-
 # exc_coro = demo_exc_handling()
 # next(exc_coro)
 
 # exc_coro.send(11)
 # exc_coro.send(22)
 
-# exc_coro.throw(DemoException)
+# exc_coro.close()
 
 # from inspect import getgeneratorstate
 
-# print(getgeneratorstate(exc_coro))  # GEN_SUSPENDED
+# print(getgeneratorstate(exc_coro))  # GEN_CLOSED
+
+
+exc_coro = demo_exc_handling()
+next(exc_coro)
+
+exc_coro.send(11)
+exc_coro.send(22)
+
+exc_coro.throw(DemoException)
+
+from inspect import getgeneratorstate
+
+print(getgeneratorstate(exc_coro))  # GEN_SUSPENDED
